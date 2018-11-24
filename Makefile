@@ -6,13 +6,13 @@
 #    By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/13 19:52:44 by vbrazas           #+#    #+#              #
-#    Updated: 2018/11/21 19:45:10 by kaoliiny         ###   ########.fr        #
+#    Updated: 2018/11/24 00:13:55 by vbrazas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY:		all clean fclean re mclean mfclean mre
 
-NAME :=		corewar
+NAME :=		fillit
 
 SRC_PATH :=	src/
 INC_PATH :=	includes/
@@ -25,7 +25,7 @@ IFLAGS :=	-I $(INC_PATH) -I $(LIB_PATH)
 LFLAGS :=	-L $(LIB_PATH) -lft
 
 HFILES :=	fillit
-FILES :=	fillit
+FILES :=	main
 
 HDRS :=		$(addprefix $(INC_PATH), $(addsuffix .h, $(HFILES)))
 SRCS :=		$(addprefix $(SRC_PATH), $(addsuffix .c, $(FILES)))

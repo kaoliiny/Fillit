@@ -3,37 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 13:59:36 by ytrubach          #+#    #+#             */
-/*   Updated: 2018/11/20 18:18:09 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2018/11/24 00:12:41 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
-# include <fcntl.h>
-# include <unistd.h>
-//# include <sys/types.h>
-//# include <sys/stat.h>
-# include <stdlib.h>
-# include <stdio.h> //!
-# include <string.h>
-# include "libft/libft.h"
 
-# define BUFF_SIZE 1
+# include <fcntl.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <string.h>
+# include <libft.h>
+
+//# define BUFF_SIZE 5
 
 typedef struct		s_coord
 {
-	int					x;
-	int					y;
-	char 				symb;
-	struct s_coord		*next;
-	struct s_coord		*prev;
+	int				x[3];
+	int				y[3];
+	char			letter;
+
 }					t_coord;
 
-int					get_next_line(const int fd, char **line);
+t_coord		a[26];
+t_coord		*c;
 
-char				**fillit(char **str, int fd);
+//char				**fillit(char **str, int fd);
+
+//int     			check_neib(char **arr);
 
 #endif
