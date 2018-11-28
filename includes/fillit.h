@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 13:59:36 by ytrubach          #+#    #+#             */
-/*   Updated: 2018/11/24 00:12:41 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/11/28 16:59:53 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,33 @@
 # include <libft.h>
 
 //# define BUFF_SIZE 5
+#define MAP_X(fig, i)	(f->maps[fig].x[i])
+#define MAP_Y(fig, i)	(f->maps[fig].y[i])
 
 typedef struct		s_coord
 {
+	char			letter;
 	int				x[3];
 	int				y[3];
-	char			letter;
 
 }					t_coord;
 
-t_coord		a[26];
-t_coord		*c;
+typedef struct		s_fillit
+{
+	t_coord		maps[26];
+	int			cmi;
+	char		**map;
+	int			size;
 
+}					t_ft;
+
+void	ft_error(int errnum);
+
+void	map_size(t_ft *f);
 //char				**fillit(char **str, int fd);
+char	**ft_backtracking(t_ft *f, int fig);
 
+void free_map(t_ft *f);
 //int     			check_neib(char **arr);
 
 #endif
