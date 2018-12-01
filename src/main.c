@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 18:16:43 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/11/28 16:57:50 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2018/12/01 18:21:29 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,15 +107,16 @@ static void		scriber(char *arr[4], t_ft *f)
 				}
 				else
 					rec_coord(xy, i, j, ++enter, f);
-				if ((j < 3 && arr[i][j + 1] == '#')
-				|| (i < 3 && arr[i + 1][j] == '#'))
+				if (j < 3 && arr[i][j + 1] == '#')
+					con++;
+				if (i < 3 && arr[i + 1][j] == '#')
 					con++;
 			}
 			else if (arr[i][j] != '.')
 				ft_error(7);
 		}
 	}
-	(con != 3) ? ft_error(8) : 0;
+	(con != 3) ? ft_error(8) : 0; //прописать для квадратв
 }
 
 static int		check_map(int fd, t_ft *f)
@@ -149,7 +150,6 @@ int			main(int argc, char **argv)
 	t_ft	f;
 	int		fd;
 
-	//f.size = 0;
 	ft_bzero(&f, sizeof(t_ft));
 	(argc != 2) ? ft_error(1) : 0;
 	fd = open(argv[1], O_RDONLY);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   backtracking.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 12:14:08 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/11/28 17:02:18 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2018/12/01 21:34:17 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,41 +66,26 @@ char		**ft_try(t_ft *f, int x, int y, int fig)
 
 char **ft_backtracking(t_ft *f, int fig)
 {
-	int x;
-	int y;
-
-	x = 0;
-	y = 0;
-
-	while (y < f->size - 1 - MAP_Y(fig, 2) && fig <= f->cmi)
+	while (MAP_Y(fig, 2) >= f->size || MAP_X(fig, 2) >= f->size)
+		free_map(f);
+	while (fig < f->cmi)
 	{
-		(x == 4) ? ((++y) && (x = 0)) : 0;
-		if (ft_try(f, x, y, fig) == NULL)
+		(CX(fig) == f->size) ? (++CY(fig) && (CX(fig) = 0)) : 0;
+		if (ft_try(f, CX(fig), CY(fig), fig) == NULL)
 		{
-			x++;
-			if (fig == f->cmi - 1 && y == f->size - 2 - MAP_Y(fig, 2)) //should be here is x as well
+			CX(fig)++;
+			if (CX(fig) == f->size && CY(fig) == f->size - 1 - MAP_Y(fig, 2))
 			{
-				// free map and make bigger map 
-				free_map(f);
-				ft_print(f);
+				CX(--fig)++;
+				ft_clean(f, fig);
+			//	return(ft_backtracking(f, --fig));
+				(fig == 0)	? free_map(f) : 0;
 				return(NULL);
 			}
 		}
-				//ft_print(f);
 		else
-		{
 			return(ft_backtracking(f, ++fig));
-	//		return(f->map);
-		}
 	}
-
 	ft_print(f);
 	return(f->map);
-//	while(i < f->cmi)
-//	{
-//		if(t_try(f, x, y) != NULL)
-	// 		ft_backtracking(f, ++i)
-	// 	else
-	// 		x++;
-	// }
 }

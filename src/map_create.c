@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 16:58:08 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/11/28 16:10:47 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2018/12/01 21:31:24 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@ void free_map(t_ft *f)
 
 	i = 0;
 	while (i < f->size)
+	{
+		CX(i) = 0;
+		CY(i) = 0;
 		ft_strdel(&f->map[i++]);
+	}
 	f->size++;
 	create_map(f);
 }

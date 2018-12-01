@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 13:59:36 by ytrubach          #+#    #+#             */
-/*   Updated: 2018/11/28 16:59:53 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2018/12/01 14:21:12 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,16 @@
 #define MAP_X(fig, i)	(f->maps[fig].x[i])
 #define MAP_Y(fig, i)	(f->maps[fig].y[i])
 
+#define CX(fig)			(f->maps[fig].cx)
+#define CY(fig)			(f->maps[fig].cy)
+
 typedef struct		s_coord
 {
 	char			letter;
 	int				x[3];
 	int				y[3];
+	int				cx;
+	int				cy;
 
 }					t_coord;
 
