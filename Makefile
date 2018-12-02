@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+         #
+#    By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/08/13 19:52:44 by vbrazas           #+#    #+#              #
-#    Updated: 2018/11/24 00:13:55 by vbrazas          ###   ########.fr        #
+#    Created: 2018/08/13 19:52:44 by kaoliiny          #+#    #+#              #
+#    Updated: 2018/12/03 00:17:02 by kaoliiny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,13 @@ LIB_PATH :=	libft/
 OBJ_PATH :=	.obj/
 
 CC :=		clang
-CFLAGS :=	-g# -Wall -Werror -Wextra
+CFLAGS :=	-g -Wall -Werror -Wextra
 IFLAGS :=	-I $(INC_PATH) -I $(LIB_PATH)
 LFLAGS :=	-L $(LIB_PATH) -lft
 
 HFILES :=	fillit
 FILES :=	main map_create backtracking
+LIB :=		$(LIB_PATH)libft.a
 
 HDRS :=		$(addprefix $(INC_PATH), $(addsuffix .h, $(HFILES)))
 SRCS :=		$(addprefix $(SRC_PATH), $(addsuffix .c, $(FILES)))

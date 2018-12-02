@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 16:58:08 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/12/01 21:31:24 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/12/02 20:53:09 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static char **create_map(t_ft *f)
 {
-	char	**map;
 	int		i;
 
 	i = 0;
@@ -34,14 +33,18 @@ static char **create_map(t_ft *f)
 void free_map(t_ft *f)
 {
 	int i;
+	int	j;
 
 	i = 0;
-	while (i < f->size)
+	j = 0;
+	while (j < f->cmi)
 	{
-		CX(i) = 0;
-		CY(i) = 0;
-		ft_strdel(&f->map[i++]);
+		CX(j) = 0;
+		CY(j) = 0;
+		j++;
 	}
+	while (i < f->size)
+		ft_strdel(&f->map[i++]);
 	f->size++;
 	create_map(f);
 }

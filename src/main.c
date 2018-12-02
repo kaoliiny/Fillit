@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 18:16:43 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/12/01 18:21:29 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/12/02 20:53:03 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ static void		rec_coord(int xy[], int i, int j, int enter, t_ft *f)
 	if (enter == 3)
 		f->cmi++;
 }
+
 static void		scriber(char *arr[4], t_ft *f)
 {
 	int		i;
@@ -116,7 +117,8 @@ static void		scriber(char *arr[4], t_ft *f)
 				ft_error(7);
 		}
 	}
-	(con != 3) ? ft_error(8) : 0; //прописать для квадратв
+	if ((con != 3) && (con != 4 || (MAP_Y(f->cmi - 1, 2) != 1 || MAP_X(f->cmi - 1, 2) != 1)))
+		ft_error(8);
 }
 
 static int		check_map(int fd, t_ft *f)
@@ -129,7 +131,7 @@ static int		check_map(int fd, t_ft *f)
 
 	i = 0;
 	j = 0;
-	while ((ret = get_next_line(fd, &line) > 0) && ++i < 129)
+	while ((ret = get_next_line(fd, &line) > 0) && ++i <= 129)
 		if (j == 4)
 		{
 			(!ft_strequ(line, "")) ? ft_error(3) : 0;
@@ -140,7 +142,7 @@ static int		check_map(int fd, t_ft *f)
 		else
 			(ft_strlen(line) != 4) ? ft_error(2) : (arr[j++] = line);
 	(j == 4) ? scriber(arr, f) : ft_error(3);
-	(i == 129) ? ft_error(4) : 0;
+	(i == 130) ? ft_error(4) : 0;
 	(ret < 0) ? ft_error(5) : 0;
 	return(1);
 }
@@ -156,8 +158,9 @@ int			main(int argc, char **argv)
 	((fd) <= 0) ? ft_error(1) : 0;
 	check_map(fd, &f);
 	map_size(&f);
-	printf("Here we're!\n");
+	// printf("Here we're!\n");
 	while (ft_backtracking(&f, 0) == NULL)
 		;
+	// printf("konez\n");
 	return (0);
 }

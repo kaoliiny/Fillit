@@ -6,7 +6,7 @@
 /*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 13:59:36 by ytrubach          #+#    #+#             */
-/*   Updated: 2018/12/01 14:21:12 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2018/12/02 20:45:02 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct		s_coord
 
 typedef struct		s_fillit
 {
-	t_coord		maps[26];
+	t_coord		maps[27];
 	int			cmi;
 	char		**map;
 	int			size;
