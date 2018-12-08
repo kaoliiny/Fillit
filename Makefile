@@ -6,7 +6,7 @@
 #    By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/13 19:52:44 by kaoliiny          #+#    #+#              #
-#    Updated: 2018/12/03 00:17:02 by kaoliiny         ###   ########.fr        #
+#    Updated: 2018/12/08 19:57:46 by kaoliiny         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ IFLAGS :=	-I $(INC_PATH) -I $(LIB_PATH)
 LFLAGS :=	-L $(LIB_PATH) -lft
 
 HFILES :=	fillit
-FILES :=	main map_create backtracking
+FILES :=	main map_create backtracking scriber
 LIB :=		$(LIB_PATH)libft.a
 
 HDRS :=		$(addprefix $(INC_PATH), $(addsuffix .h, $(HFILES)))

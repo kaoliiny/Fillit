@@ -6,20 +6,19 @@
 /*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 12:14:08 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/12/02 20:53:08 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2018/12/08 20:05:42 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void ft_print(t_ft *f)
+void	ft_print(t_ft *f)
 {
 	int i;
 
 	i = -1;
-	while(++i < f->size)
-		printf("%s\n", f->map[i]);
-	printf("\n");
+	while (++i < f->size)
+		ft_putendl(f->map[i]);
 }
 
 void ft_clean(t_ft *f, int fig)
@@ -42,35 +41,45 @@ char		**ft_try(t_ft *f, int x, int y, int fig)
 	i = 0;
 	counter = 0;
 	if (y < f->size && f->map[y][x] == '.')
-		f->map[y][x] = f->maps[fig].letter;
-	else 
-		return(NULL);
-	while(i < 3 && MAP_Y(fig, i) + y < f->size)
+		counter++;
+	else
+		return (NULL);
+	while (i < 3 && MAP_Y(fig, i) + y < f->size)
 	{
 		if (f->map[MAP_Y(fig, i) + y][MAP_X(fig, i) + x] == '.')
-		{
-			f->map[MAP_Y(fig, i) + y][MAP_X(fig, i) + x] = f->maps[fig].letter;
 			counter++;
-		}
-	//		ft_print(f);
 		i++;
 	}
-	if (counter != 3)
+	if (counter == 4)
 	{
-		ft_clean(f, fig);
-		return (NULL);
+		f->map[y][x] = f->maps[fig].letter;
+		while (--i >= 0 && MAP_Y(fig, i) + y < f->size)
+			f->map[MAP_Y(fig, i) + y][MAP_X(fig, i) + x] = f->maps[fig].letter;
+		return (f->map);
 	}
-	return (f->map);
+	return (NULL);
 }
 
-//Doesn't work with square
+void		norm_onelove(t_ft *f, int fig)
+{
+	CX(fig) = 0;
+	CY(fig) = 0;
+	CX(--fig)++;
+	ft_clean(f, fig);
+	if (f->cmi != 1)
+		(fig == -1) ?
+		free_map(f, 1, &fig) : ft_backtracking(f, fig);
+}
 
 char **ft_backtracking(t_ft *f, int fig)
 {
-	while (MAP_Y(fig, 2) >= f->size || MAP_X(fig, 2) >= f->size)
+	if (++f->cnti >= 95000)
 	{
-		free_map(f);
+		free_map(f, 1, &f->cnti);
+		return (NULL);
 	}
+	while (MAP_Y(fig, 2) >= f->size || MAP_X(fig, 2) >= f->size)
+		free_map(f, 0, &fig);
 	while (fig < f->cmi)
 	{
 		(CX(fig) == f->size) ? (++CY(fig) && (CX(fig) = 0)) : 0;
@@ -79,13 +88,8 @@ char **ft_backtracking(t_ft *f, int fig)
 			CX(fig)++;
 			if (CX(fig) == f->size && CY(fig) >= f->size - 1 - MAP_Y(fig, 2))
 			{
-				CX(fig) = 0;
-				CY(fig) = 0;
-				CX(--fig)++;
-				ft_clean(f, fig);
-			//	return(ft_backtracking(f, fig));
-				(fig == -1)	? free_map(f) : 0;
-				return(NULL);
+				norm_onelove(f, fig);
+				return (NULL);
 			}
 		}
 		else

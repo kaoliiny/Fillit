@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 20:41:01 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/11/24 00:24:04 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/12/08 20:17:20 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 
 # define BUFF_SIZE 4096
+
 typedef struct	s_list
 {
 	void			*content;
@@ -106,6 +107,5 @@ void			sort_int_tab(int *tab, unsigned int size);
 void			ft_list_push_back(t_list **begin_list, void *data);
 
 int				get_next_line(const int fd, char **line);
-
 
 #endif
