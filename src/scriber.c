@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 18:16:43 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/12/08 22:04:10 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/12/08 22:35:06 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,10 @@ static void		scriber(char *arr[4], t_ft *f)
 					rec_coord(xy, i, j, f);
 				check_con(arr, &con, i, j);
 			}
-			else (arr[i][j] != '.') ? ft_error(7) : 0;
+			else
+				(arr[i][j] != '.') ? ft_error(7) : 0;
 	}
-	con != 3 && (con != 4 || (MAP_Y(f->cmi - 1, 2) != 1
+	(con != 3) && (con != 4 || (MAP_Y(f->cmi - 1, 2) != 1
 	|| MAP_X(f->cmi - 1, 2) != 1)) && ft_error(8);
 }
 
@@ -77,7 +78,7 @@ void			check_map(int fd, t_ft *f)
 				free(arr[--j]);
 		}
 		else
-			(ft_strlen(line) != 4) ? ft_error(2) : (arr[j++] = line);
+			(ft_strlen(line) != 4) ? (void)ft_error(2) : (arr[j++] = line);
 	(j == 4) ? scriber(arr, f) : ft_error(3);
 	(i == 130) ? ft_error(4) : 0;
 	(ret < 0) ? ft_error(5) : 0;

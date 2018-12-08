@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 13:59:36 by ytrubach          #+#    #+#             */
-/*   Updated: 2018/12/08 20:23:54 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2018/12/08 22:33:55 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 # include <string.h>
 # include <libft.h>
 
-#define MAP_X(fig, i)	(f->maps[fig].x[i])
-#define MAP_Y(fig, i)	(f->maps[fig].y[i])
+# define MAP_X(fig, i)	(f->maps[fig].x[i])
+# define MAP_Y(fig, i)	(f->maps[fig].y[i])
 
-#define CX(fig)			(f->maps[fig].cx)
-#define CY(fig)			(f->maps[fig].cy)
+# define CX(fig)		(f->maps[fig].cx)
+# define CY(fig)		(f->maps[fig].cy)
 
 typedef struct		s_coord
 {
@@ -47,7 +47,7 @@ typedef struct		s_fillit
 
 }					t_ft;
 
-void				ft_error(int errnum);
+int					ft_error(int errnum);
 
 void				map_size(t_ft *f);
 

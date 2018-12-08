@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 12:14:08 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/12/06 23:00:02 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2018/12/08 22:22:17 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void		ft_error(int errnum)
+int			ft_error(int errnum)
 {
 	const char	*errmessages[20] = {"",
 	"1. There must be exactly one valid file. Please follow the rules",
@@ -26,6 +26,7 @@ void		ft_error(int errnum)
 
 	ft_putendl_fd(errmessages[errnum], 2);
 	exit(errnum);
+	return (1);
 }
 
 int			main(int argc, char **argv)
