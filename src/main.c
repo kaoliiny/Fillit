@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 12:14:08 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/12/08 22:22:17 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/12/08 23:18:53 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ int			main(int argc, char **argv)
 	check_map(fd, &f);
 	map_size(&f);
 	ft_backtracking(&f, 0);
+	system("leaks -q fillit");
 	return (0);
 }

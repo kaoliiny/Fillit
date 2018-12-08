@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   backtracking.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 12:14:08 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/12/08 20:05:42 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2018/12/08 23:40:41 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ void	ft_print(t_ft *f)
 		ft_putendl(f->map[i]);
 }
 
-void ft_clean(t_ft *f, int fig)
+void	ft_clean(t_ft *f, int fig)
 {
 	int i;
 	int j;
 
 	i = -1;
-	while(++i < f->size  && (j = -1))
+	while (++i < f->size && (j = -1))
 		while (++j < f->size)
 			if (f->map[i][j] == f->maps[fig].letter)
 				f->map[i][j] = '.';
 }
 
-char		**ft_try(t_ft *f, int x, int y, int fig)
+char	**ft_try(t_ft *f, int x, int y, int fig)
 {
 	int i;
 	int	counter;
@@ -60,7 +60,7 @@ char		**ft_try(t_ft *f, int x, int y, int fig)
 	return (NULL);
 }
 
-void		norm_onelove(t_ft *f, int fig)
+void	norm_onelove(t_ft *f, int fig)
 {
 	CX(fig) = 0;
 	CY(fig) = 0;
@@ -71,7 +71,7 @@ void		norm_onelove(t_ft *f, int fig)
 		free_map(f, 1, &fig) : ft_backtracking(f, fig);
 }
 
-char **ft_backtracking(t_ft *f, int fig)
+char	**ft_backtracking(t_ft *f, int fig)
 {
 	if (++f->cnti >= 95000)
 	{
@@ -93,8 +93,8 @@ char **ft_backtracking(t_ft *f, int fig)
 			}
 		}
 		else
-			return(ft_backtracking(f, ++fig));
+			return (ft_backtracking(f, ++fig));
 	}
 	ft_print(f);
-	return(f->map);
+	return (f->map);
 }

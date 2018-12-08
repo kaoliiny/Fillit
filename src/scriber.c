@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 18:16:43 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/12/08 22:35:06 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/12/09 00:09:37 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,5 @@ void			check_map(int fd, t_ft *f)
 	(j == 4) ? scriber(arr, f) : ft_error(3);
 	(i == 130) ? ft_error(4) : 0;
 	(ret < 0) ? ft_error(5) : 0;
+	// (arr && *arr ) ? free(arr) : 0;
 }

@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   map_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <kaoliiny@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 16:58:08 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/12/08 21:32:25 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2018/12/08 22:39:30 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static char **create_map(t_ft *f)
+static char		**create_map(t_ft *f)
 {
 	int		i;
 
 	i = 0;
-	if(!(f->map = (char **)malloc(sizeof(char *) * (f->size + 1))))
+	if (!(f->map = (char **)malloc(sizeof(char *) * (f->size + 1))))
 		return (NULL);
 	f->map[f->size] = NULL;
-	while(i < f->size)
+	while (i < f->size)
 	{
 		f->map[i] = (char *)malloc(sizeof(char) * (f->size + 1));
 		ft_memset(f->map[i], 46, f->size);
-		f->map[i][f->size] = '\0'; 
+		f->map[i][f->size] = '\0';
 		i++;
 	}
 	return (f->map);
@@ -52,9 +52,9 @@ void			free_map(t_ft *f, int d, int *fig)
 	(d == 2) ? CX(--j)++ && ft_backtracking(f, 0) : 0;
 }
 
-static int	ft_sqrt(int nb)
+static int		ft_sqrt(int nb)
 {
-	int sqrt;
+	int		sqrt;
 
 	sqrt = 2;
 	while (nb > sqrt * sqrt)
@@ -62,8 +62,8 @@ static int	ft_sqrt(int nb)
 	return (sqrt);
 }
 
-void	map_size(t_ft *f)
+void			map_size(t_ft *f)
 {
-		f->size = ft_sqrt(f->cmi * 4);
-		create_map(f);
+	f->size = ft_sqrt(f->cmi * 4);
+	create_map(f);
 }
