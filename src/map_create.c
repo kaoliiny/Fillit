@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 16:58:08 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/12/08 22:39:30 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/12/10 20:12:28 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void			free_map(t_ft *f, int d, int *fig)
 		j++;
 	}
 	while (i < f->size)
-		ft_strdel(&f->map[i++]);
+		free(f->map[i++]);
+	free(f->map);
 	f->size++;
 	create_map(f);
 	(d == 1) ? ft_backtracking(f, 0) : 0;

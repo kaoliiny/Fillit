@@ -6,7 +6,7 @@
 /*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 18:16:43 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/12/10 16:01:49 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/12/10 20:14:43 by vbrazas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,17 +69,21 @@ void			check_map(int fd, t_ft *f)
 
 	i = 0;
 	j = 0;
-	while ((ret = get_next_line(fd, &line) >= 0) && ++i <= 129)
+	while ((ret = get_next_line(fd, &line) > 0) && ++i <= 129)
+	{
 		if (j == 4)
 		{
-			(!ft_strequ(line, "")) ? ft_error(3) : 0;
-			scriber(arr, f);
+			(!ft_strequ(line, "")) ? ft_error(3) : scriber(arr, f);
 			while (j)
 				free(arr[--j]);
+			free(line);
 		}
 		else
 			(ft_strlen(line) != 4) ? (void)ft_error(2) : (arr[j++] = line);
-	(j == 4 && !(i % 5)) ? scriber(arr, f) : ft_error(3);
-	(i == 130) ? ft_error(4) : 0;
+	}
+	(j == 4) ? scriber(arr, f) : ft_error(3);
+	(i > 129) ? ft_error(4) : 0;
 	(ret < 0) ? ft_error(5) : 0;
+	while (j)
+		free(arr[--j]);
 }
