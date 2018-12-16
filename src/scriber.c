@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scriber.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*   By: kaoliiyn <kaoliiyn@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 18:16:43 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/12/10 20:14:43 by vbrazas          ###   ########.fr       */
+/*   Updated: 2018/12/16 05:42:07 by kaoliiyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void		check_con(char *arr[4], int *con, int i, int j)
 		(*con)++;
 }
 
-static void		scriber(char *arr[4], t_ft *f)
+static void		scriber(char **arr, t_ft *f)
 {
 	int		i;
 	int		j;
