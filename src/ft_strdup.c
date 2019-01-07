@@ -3,34 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 00:58:03 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/11/12 19:20:52 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/07 14:23:37 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
+#include "get_next_line.h"
 
-char	*ft_strdup(const char *src)
+char	*ft_strdup(const char *str)
 {
-	char	*src_new;
-	int		nbr;
+	char	*x;
 	int		i;
 
-	nbr = 0;
+	i = ft_strlen((char*)str);
+	x = (char *)malloc(sizeof(*x) * (i + 1));
+	if (x == 0)
+		return (0);
 	i = 0;
-	while (src[nbr] != '\0')
-		nbr += 1;
-	src_new = (char *)malloc(sizeof(char) * (nbr + 1));
-	if (src_new == 0)
-		return (NULL);
-	while (i <= nbr)
+	while (str[i] != '\0')
 	{
-		src_new[i] = src[i];
+		x[i] = str[i];
 		i++;
 	}
-	src_new[i] = '\0';
-	return (src_new);
+	x[i] = '\0';
+	return (x);
 }

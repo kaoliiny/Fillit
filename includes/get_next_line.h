@@ -6,7 +6,7 @@
 /*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 12:55:40 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/07 14:12:51 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/07 14:27:52 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void			*ft_memset(void *b, int c, size_t len);
 
 t_list			*ft_lstnew(void const *content, size_t content_size);
 
-char			*ft_strdup(const char *src);
+char			*ft_strdup(const char *str);
 
-char			*ft_strjoin(char const *str1, char const *str2);
+char			*ft_strjoin(char const *s1, char const *s2);
 
 char			*ft_strcpy(char *dest, const char *src);
 

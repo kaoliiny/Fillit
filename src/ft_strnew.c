@@ -3,35 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/02 19:37:19 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/11/13 14:03:41 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/07 14:24:52 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-static	void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strnew(size_t size)
 {
-	size_t			i;
-	unsigned char	*b1;
+	char *tmp;
+	char *str;
 
-	i = 0;
-	b1 = (unsigned char *)b;
-	while (i < len)
-	{
-		b1[i] = (unsigned char)c;
-		i++;
-	}
-	return (b);
-}
-
-char			*ft_strnew(size_t size)
-{
-	char *x;
-
-	if (!(x = (char *)malloc(sizeof(char) * size + 1)))
+	str = (char*)malloc(size + 1);
+	if (str == NULL)
 		return (NULL);
-	return (ft_memset(x, '\0', size + 1));
+	tmp = str;
+	while (size)
+	{
+		*tmp++ = '\0';
+		size--;
+	}
+	*tmp = '\0';
+	return (str);
 }

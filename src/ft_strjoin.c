@@ -5,28 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 19:23:10 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/07 13:44:21 by kaoliiny         ###   ########.fr       */
+/*   Created: 2018/10/24 17:41:23 by ytrubach          #+#    #+#             */
+/*   Updated: 2019/01/07 14:20:17 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "get_next_line.h"
-#include <stdlib.h>
 
-char	*ft_strjoin(char const *str1, char const *str2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*joint;
-	char	*s1;
-	char	*s2;
+	char	*fresh;
+	int		alllens;
+	int		i;
+	int		j;
 
-	if (!str1 || !str2)
+	i = 0;
+	if (!s1 || !s2)
 		return (NULL);
-	s1 = (char *)str1;
-	s2 = (char *)str2;
-	joint = ft_strnew((ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (joint == 0)
+	if (*s1 == '\0' && *s2 == '\0')
+		return (ft_strdup(""));
+	alllens = ft_strlen((char*)s1) + ft_strlen((char*)s2);
+	if (!(fresh = (char*)malloc(sizeof(char) * (alllens + 1))))
 		return (NULL);
-	ft_strcpy(joint, s1);
-	ft_strcat(joint, s2);
-	return (joint);
+	while (s1[i] != '\0' && i < alllens)
+	{
+		fresh[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j] != '\0' && j < alllens)
+		fresh[i++] = s2[j++];
+	fresh[i] = '\0';
+	return (fresh);
 }
