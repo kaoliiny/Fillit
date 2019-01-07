@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:23:10 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/11/07 18:40:30 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/07 13:44:21 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "get_next_line.h"
 #include <stdlib.h>
 
 char	*ft_strjoin(char const *str1, char const *str2)

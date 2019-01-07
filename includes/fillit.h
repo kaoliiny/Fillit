@@ -3,22 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vbrazas <vbrazas@student.unit.ua>          +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 13:59:36 by ytrubach          #+#    #+#             */
-/*   Updated: 2018/12/08 22:38:11 by vbrazas          ###   ########.fr       */
+/*   Updated: 2019/01/07 13:32:01 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
+# include "get_next_line.h"
 # include <fcntl.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-# include <libft.h>
+
+# define ABS(Value) ((Value) < 0 ? -(Value) : (Value))
 
 # define MAP_X(fig, i)	(f->maps[fig].x[i])
 # define MAP_Y(fig, i)	(f->maps[fig].y[i])

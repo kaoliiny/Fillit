@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiyn <kaoliiyn@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 12:14:08 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/12/16 05:40:54 by kaoliiyn         ###   ########.fr       */
+/*   Updated: 2019/01/07 14:07:15 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int			ft_error(int errnum)
 	"7. Invalid symbol in the map!",
 	"8. In one figure's line must be only four characters '#'!"};
 
+	ft_putendl_fd("error", 2);
 	ft_putendl_fd(errmessages[errnum], 2);
 	exit(errnum);
 	return (1);
@@ -56,5 +57,6 @@ int			main(int argc, char **argv)
 	(ft_valid_newline(argv[1])) ? check_map(fd, &f) : ft_error(1);
 	map_size(&f);
 	ft_backtracking(&f, 0);
+	// system("leaks fillit");
 	return (0);
 }

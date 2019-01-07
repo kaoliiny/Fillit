@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiyn <kaoliiyn@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 16:58:08 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/12/16 05:08:48 by kaoliiyn         ###   ########.fr       */
+/*   Updated: 2019/01/06 13:53:35 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int		ft_sqrt(int nb)
 {
 	int		sqrt;
 
-	sqrt = 2;
+	sqrt = 3;
 	while (nb > sqrt * sqrt)
 		sqrt++;
 	return (sqrt);
@@ -65,6 +65,10 @@ static int		ft_sqrt(int nb)
 
 void			map_size(t_ft *f)
 {
-	f->size = ft_sqrt(f->cmi * 4);
+	if (f->cmi == 1 && (MAP_Y(1, 1) + MAP_Y(1, 2)
+	+ MAP_X(1, 2) + MAP_X(1, 0)) == 4)
+		f->size = 2;
+	else
+		f->size = ft_sqrt(f->cmi * 4);
 	create_map(f);
 }

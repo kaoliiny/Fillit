@@ -1,0 +1,24 @@
+ft_putendl
+ft_putendl_fd("error", 2);
+ft_strlen
+ft_bzero
+ft_memset
+get_next_line
+ft_strequ
+
+ft_strdup
+ft_strlen
+ft_lstnew
+
+ft_strjoin
+
+ft_strnew
+ft_strcpy
+ft_strcat
+
+ft_strchr
+ft_strdel
+
+ ft_lstadd
+ ft_strsub
+ ft_strdup

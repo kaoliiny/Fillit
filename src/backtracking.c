@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   backtracking.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiyn <kaoliiyn@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 12:14:08 by vbrazas           #+#    #+#             */
-/*   Updated: 2018/12/16 04:57:40 by kaoliiyn         ###   ########.fr       */
+/*   Updated: 2019/01/06 13:50:53 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ char	**ft_backtracking(t_ft *f, int fig)
 		free_map(f, 1, &f->cnti);
 		return (NULL);
 	}
-	while (MAP_Y(fig, 2) >= f->size || MAP_X(fig, 2) >= f->size)
+	if (MAP_Y(fig, 2) >= f->size || ABS(MAP_X(fig, 2)) >= f->size
+	|| ABS(MAP_X(fig, 1)) >= f->size || ABS(MAP_X(fig, 0)) >= f->size)
 		free_map(f, 0, &fig);
 	while (fig < f->cmi)
 	{

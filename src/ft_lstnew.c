@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiny <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 18:54:08 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/11/09 22:04:49 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/07 14:16:35 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "get_next_line.h"
 #include <stdlib.h>
 
 t_list	*ft_lstnew(void const *content, size_t content_size)
@@ -30,7 +30,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	else
 	{
 		new->content = (char *)malloc(sizeof(char) * ft_strlen(con));
-		ft_memcpy(new->content, content, content_size);
+		new->content = ft_memcpy(new->content, content, content_size);
 		new->content_size = content_size;
 		new->next = NULL;
 	}

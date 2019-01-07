@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scriber.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaoliiyn <kaoliiyn@student.unit.ua>        +#+  +:+       +#+        */
+/*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 18:16:43 by kaoliiny          #+#    #+#             */
-/*   Updated: 2018/12/16 05:42:07 by kaoliiyn         ###   ########.fr       */
+/*   Updated: 2019/01/07 13:42:31 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void		scriber(char **arr, t_ft *f)
 				check_con(arr, &con, i, j);
 			}
 			else
-				(arr[i][j] != '.') ? ft_error(7) : 0;
+				(arr[i][j] == '.') ? 0 : ft_error(7);
 	}
 	(con != 3) && (con != 4 || (MAP_Y(f->cmi - 1, 2) != 1
 	|| MAP_X(f->cmi - 1, 2) != 1)) && ft_error(8);
