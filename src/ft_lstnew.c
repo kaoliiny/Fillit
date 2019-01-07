@@ -6,12 +6,11 @@
 /*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 18:54:08 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/07 14:16:35 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/07 14:31:00 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "get_next_line.h"
-#include <stdlib.h>
+#include "get_next_line.h"
 
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {

@@ -6,11 +6,11 @@
 /*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 17:41:23 by ytrubach          #+#    #+#             */
-/*   Updated: 2019/01/07 14:20:17 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/07 14:31:38 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "get_next_line.h"
+#include "get_next_line.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

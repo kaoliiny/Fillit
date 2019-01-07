@@ -6,12 +6,10 @@
 /*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 00:58:03 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/07 14:23:37 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/07 14:31:18 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
 #include "get_next_line.h"
 
 char	*ft_strdup(const char *str)

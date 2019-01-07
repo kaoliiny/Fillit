@@ -6,7 +6,7 @@
 /*   By: kaoliiny <kaoliiny@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 12:14:08 by kaoliiny          #+#    #+#             */
-/*   Updated: 2019/01/07 14:07:15 by kaoliiny         ###   ########.fr       */
+/*   Updated: 2019/01/07 14:32:41 by kaoliiny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,5 @@ int			main(int argc, char **argv)
 	(ft_valid_newline(argv[1])) ? check_map(fd, &f) : ft_error(1);
 	map_size(&f);
 	ft_backtracking(&f, 0);
-	// system("leaks fillit");
 	return (0);
 }
